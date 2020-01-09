@@ -1,2 +1,4 @@
 # aria2-rpc
-aria2-rpc by Python
+
+基于 https://bitbucket.org/tinyproxy/pyaria2.git
+修改
