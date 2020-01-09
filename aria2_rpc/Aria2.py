@@ -6,14 +6,11 @@ from base64 import b64encode
 
 
 class Aria2RPC(object):
-    def __init__(self, host: str, port: int, token: str = None, auto_token: bool = False):
-        if auto_token:
-            self._token = 'token:' + b64encode(uuid4().bytes).decode('utf-8')
+    def __init__(self, host: str, port: int, token: str = None):
+        if token:
+            self._token = 'token:' + token
         else:
-            if token:
-                self._token = 'token:' + token
-            else:
-                self._token = token
+            self._token = token
         self._client = ServerProxy("http://{}:{}/rpc".format(host, port))
 
     def addUri(self, uris, options):
