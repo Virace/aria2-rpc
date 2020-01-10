@@ -132,30 +132,38 @@ class Aria2RPC(object):
             params.insert(0, self._token)
         return self._client.aria2.getServers(*params)
 
-    def tellStatus(self, gid):
+    def tellStatus(self, gid, key=None):
         # https://aria2.github.io/manual/en/html/aria2c.html#aria2.tellStatus
         params = [gid]
+        if key:
+            params.append(key)
         if self._token:
             params.insert(0, self._token)
         return self._client.aria2.tellStatus(*params)
 
-    def tellActive(self):
+    def tellActive(self, key=None):
         # https://aria2.github.io/manual/en/html/aria2c.html#aria2.tellActive
         params = []
+        if key:
+            params.append(key)
         if self._token:
             params.insert(0, self._token)
         return self._client.aria2.tellActive(*params)
 
-    def tellWaiting(self, offset, num):
+    def tellWaiting(self, offset, num, key=None):
         # https://aria2.github.io/manual/en/html/aria2c.html#aria2.tellWaiting
         params = [offset, num]
+        if key:
+            params.append(key)
         if self._token:
             params.insert(0, self._token)
         return self._client.aria2.tellWaiting(*params)
 
-    def tellStopped(self, offset, num):
+    def tellStopped(self, offset, num, key=None):
         # https://aria2.github.io/manual/en/html/aria2c.html#aria2.tellStopped
         params = [offset, num]
+        if key:
+            params.append(key)
         if self._token:
             params.insert(0, self._token)
         return self._client.aria2.tellStopped(*params)

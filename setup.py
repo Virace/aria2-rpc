@@ -5,7 +5,7 @@ with open("README.md", "r", encoding='utf-8') as fh:
 
 setuptools.setup(
     name="aria2-json-rpc",
-    version="0.0.2",
+    version="0.0.3",
     author="Virace",
     author_email="Virace@yeah.net",
     description="a naive aria2c rpc api lib",
